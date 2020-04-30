@@ -2,14 +2,14 @@
 Homebrew tap p4gefau1t/trojan-go
 
 ## How do I install these formulae?
-`brew install voibuvie/homebrew-trojan-go/trojan-go`
+`brew install voibuvie/trojan-go/trojan-go`
 
 Or `brew tap voibuvie/homebrew-trojan-go` and then `brew install trojan-go`.
 
 Or install via URL (which will not receive updates):
 
 ```
-brew install https://raw.githubusercontent.com/voibuvie/homebrew-trojan-go/master/Formula/<formula>.rb
+brew install https://raw.githubusercontent.com/voibuvie/homebrew-trojan-go/master/Formula/trojan-go.rb
 ```
 
 ## Documentation
