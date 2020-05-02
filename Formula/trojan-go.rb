@@ -1,23 +1,27 @@
 class TrojanGo < Formula
   desc "A Trojan proxy written in golang."
   homepage "https://github.com/p4gefau1t/trojan-go"
-  url "https://github.com/p4gefau1t/trojan-go/archive/v0.4.2.tar.gz"
-  sha256 "aac90065dd5b7706dc2080e6458dc74ab3885c16474cf0fe40d6ec3b19665ed3"
+  url "https://github.com/p4gefau1t/trojan-go/archive/v0.4.3.tar.gz"
+  sha256 "2b22a1c5c93cdee0cbe0cb3ac2ff0f46fb599a80ea71365e0e46803e5d4eb202"
   head "https://github.com/p4gefau1t/trojan-go.git"
 
   depends_on "go" => :build
 
   def install
+    #system "wget" "https://github.com/v2ray/domain-list-community/raw/release/dlc.dat" "-O" "geosite.dat"
+    #system "wget" "https://raw.githubusercontent.com/v2ray/geoip/release/geoip.dat" "-O" "geoip.dat"
     system "go", "build", "-ldflags", "-s -w", "-trimpath"
     (etc/"trojan-go").mkpath
-    cp("data/client.json", "data/config.json")
-    chmod 0644, "data/client.json"
-    chmod 0644, "data/config.json"
-    chmod 0644, "data/server.json"
+    #cp("data/client.json", "data/config.json")
+    #chmod 0644, "data/client.json"
+    #chmod 0644, "data/config.json"
+    #chmod 0644, "data/server.json"
     bin.install "trojan-go"
-    etc.install "data/client.json" => "trojan-go/client.json"
-    etc.install "data/config.json" => "trojan-go/config.json"
-    etc.install "data/server.json" => "trojan-go/server.json"
+    #etc.install "data/client.json" => "trojan-go/client.json"
+    #etc.install "data/config.json" => "trojan-go/config.json"
+    #etc.install "data/server.json" => "trojan-go/server.json"
+    #etc.install "geosite.dat" => "trojan-go/geosite.dat"
+    #etc.install "geoip.dat" => "trojan-go/geoip.dat"
   end
 
   plist_options :manual => "trojan-go -config #{HOMEBREW_PREFIX}/etc/trojan-go/config.json"
