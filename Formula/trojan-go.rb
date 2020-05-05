@@ -1,8 +1,8 @@
 class TrojanGo < Formula
   desc "A Trojan proxy written in golang."
   homepage "https://github.com/p4gefau1t/trojan-go"
-  url "https://github.com/p4gefau1t/trojan-go/archive/v0.4.3.tar.gz"
-  sha256 "2b22a1c5c93cdee0cbe0cb3ac2ff0f46fb599a80ea71365e0e46803e5d4eb202"
+  url "https://github.com/p4gefau1t/trojan-go/archive/v0.4.4.tar.gz"
+  sha256 "7f04cee9f4c5fad4ca72c84aa4a7e9ff3da1246514e15d5f998bbff7ee75e014"
   head "https://github.com/p4gefau1t/trojan-go.git"
 
   depends_on "go" => :build
@@ -10,7 +10,7 @@ class TrojanGo < Formula
   def install
     #system "wget" "https://github.com/v2ray/domain-list-community/raw/release/dlc.dat" "-O" "geosite.dat"
     #system "wget" "https://raw.githubusercontent.com/v2ray/geoip/release/geoip.dat" "-O" "geoip.dat"
-    system "go", "build", "-ldflags", "-s -w", "-trimpath"
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-tags", "full"
     (etc/"trojan-go").mkpath
     #cp("data/client.json", "data/config.json")
     #chmod 0644, "data/client.json"
