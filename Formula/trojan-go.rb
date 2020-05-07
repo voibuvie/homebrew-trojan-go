@@ -1,27 +1,27 @@
 class TrojanGo < Formula
   desc "A Trojan proxy written in golang."
   homepage "https://github.com/p4gefau1t/trojan-go"
-  url "https://github.com/p4gefau1t/trojan-go/archive/v0.4.4.tar.gz"
-  sha256 "7f04cee9f4c5fad4ca72c84aa4a7e9ff3da1246514e15d5f998bbff7ee75e014"
+  url "https://github.com/p4gefau1t/trojan-go/archive/v0.4.5.tar.gz"
+  sha256 "6c7ec9e50d81c427a91a543c617273b8c32b9612443f7d3544f7d04c4c866c8f"
   head "https://github.com/p4gefau1t/trojan-go.git"
 
   depends_on "go" => :build
 
   def install
-    #system "wget" "https://github.com/v2ray/domain-list-community/raw/release/dlc.dat" "-O" "geosite.dat"
-    #system "wget" "https://raw.githubusercontent.com/v2ray/geoip/release/geoip.dat" "-O" "geoip.dat"
+    system "wget" "https://github.com/v2ray/domain-list-community/raw/release/dlc.dat" "-O" "geosite.dat"
+    system "wget" "https://raw.githubusercontent.com/v2ray/geoip/release/geoip.dat" "-O" "geoip.dat"
     system "go", "build", "-ldflags", "-s -w", "-trimpath", "-tags", "full"
     (etc/"trojan-go").mkpath
-    #cp("data/client.json", "data/config.json")
-    #chmod 0644, "data/client.json"
-    #chmod 0644, "data/config.json"
-    #chmod 0644, "data/server.json"
+    cp("example/client.json", "example/config.json")
+    chmod 0644, "example/client.json"
+    chmod 0644, "example/config.json"
+    chmod 0644, "example/server.json"
     bin.install "trojan-go"
-    #etc.install "data/client.json" => "trojan-go/client.json"
-    #etc.install "data/config.json" => "trojan-go/config.json"
-    #etc.install "data/server.json" => "trojan-go/server.json"
-    #etc.install "geosite.dat" => "trojan-go/geosite.dat"
-    #etc.install "geoip.dat" => "trojan-go/geoip.dat"
+    etc.install "example/client.json" => "trojan-go/client.json"
+    etc.install "example/config.json" => "trojan-go/config.json"
+    etc.install "example/server.json" => "trojan-go/server.json"
+    etc.install "geosite.dat" => "trojan-go/geosite.dat"
+    etc.install "geoip.dat" => "trojan-go/geoip.dat"
   end
 
   plist_options :manual => "trojan-go -config #{HOMEBREW_PREFIX}/etc/trojan-go/config.json"
