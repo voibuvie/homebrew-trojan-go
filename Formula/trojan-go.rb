@@ -4,14 +4,8 @@ class TrojanGo < Formula
   version "0.4.7"
   url "https://github.com/p4gefau1t/trojan-go/releases/download/v0.4.7/trojan-go-darwin-amd64.zip"
   sha256 "b9e17b9d166d766053e2f635850945f6abc0d932295ce20724c0a262445c53f5"
-  head "https://github.com/p4gefau1t/trojan-go.git"
-
-  #depends_on "go" => :build
 
   def install
-    #system "wget" "https://github.com/v2ray/domain-list-community/raw/release/dlc.dat" "-O" "geosite.dat"
-    #system "wget" "https://raw.githubusercontent.com/v2ray/geoip/release/geoip.dat" "-O" "geoip.dat"
-    #system "go", "build", "-ldflags", "-s -w", "-trimpath", "-tags", "full"
     (etc/"trojan-go").mkpath
     cp("example/client.json", "example/config.json")
     chmod 0644, "example/client.json"
