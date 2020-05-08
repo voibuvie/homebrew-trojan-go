@@ -1,8 +1,8 @@
 class TrojanGo < Formula
   desc "A Trojan proxy written in golang."
   homepage "https://github.com/p4gefau1t/trojan-go"
-  url "https://github.com/p4gefau1t/trojan-go/archive/v0.4.5.tar.gz"
-  sha256 "6c7ec9e50d81c427a91a543c617273b8c32b9612443f7d3544f7d04c4c866c8f"
+  url "https://github.com/p4gefau1t/trojan-go/archive/v0.4.6.tar.gz"
+  sha256 "551f3b44e4ad55f33546cf40ac505c04f401511b8b10a74aaaddad7b48b18d33"
   head "https://github.com/p4gefau1t/trojan-go.git"
 
   depends_on "go" => :build
