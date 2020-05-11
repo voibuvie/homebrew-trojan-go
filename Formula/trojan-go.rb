@@ -1,9 +1,9 @@
 class TrojanGo < Formula
   desc "A Trojan proxy written in golang."
   homepage "https://github.com/p4gefau1t/trojan-go"
-  version "0.4.7"
-  url "https://github.com/p4gefau1t/trojan-go/releases/download/v0.4.7/trojan-go-darwin-amd64.zip"
-  sha256 "b9e17b9d166d766053e2f635850945f6abc0d932295ce20724c0a262445c53f5"
+  version "0.4.8"
+  url "https://github.com/p4gefau1t/trojan-go/releases/download/v0.4.8/trojan-go-darwin-amd64.zip"
+  sha256 "ed91d01a2aca6099d5da6fec3937f50d49cdef70de2fdfd57ba75687571dfc57"
 
   def install
     (etc/"trojan-go").mkpath
